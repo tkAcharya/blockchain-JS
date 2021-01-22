@@ -7,3 +7,5 @@ class Block {
     this.data = data;
   }
 }
+
+module.exports = Block;
