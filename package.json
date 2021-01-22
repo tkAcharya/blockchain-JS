@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tkAcharya/blockchain-JS/issues"
   },
-  "homepage": "https://github.com/tkAcharya/blockchain-JS#readme"
+  "homepage": "https://github.com/tkAcharya/blockchain-JS#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }
