@@ -1,0 +1,20 @@
+{
+  "name": "blockchain-JS",
+  "version": "1.0.0",
+  "description": "Full Stack Implementation of Blockchain from scratch using JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkAcharya/blockchain-JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkAcharya/blockchain-JS/issues"
+  },
+  "homepage": "https://github.com/tkAcharya/blockchain-JS#readme"
+}
