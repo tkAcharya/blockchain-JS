@@ -17,16 +17,43 @@ describe('Block',() => {
     expect(block.data).toEqual(data);
   });
 
-});
 
-describe ("genesis()", () => {
-  const genesisBlock = Block.genesis();
+  describe ("genesis()", () => {
+    const genesisBlock = Block.genesis();
+    
+    it('Check instance of Block', () => {
+      expect(genesisBlock instanceof Block).toBe(true);
+    });
   
-  it('Check instance of Block', () => {
-    expect(genesisBlock instanceof Block).toBe(true);
+    it('returns the genesis data', () =>{
+      expect(genesisBlock).toEqual(GENESIS_DATA);
+    });
+  });
+  
+  describe('mineBlock()', ()=> {
+
+    const lastBlock = Block.genesis();
+    const data = "mined data";
+    const minedBlock = Block.mineBlock({lastBlock , data});
+
+    it('Check instance of Block', () => {
+      expect(minedBlock instanceof Block).toBe(true);
+      expect(minedBlock).not.toEqual(undefined);
+    });
+
+    it('Check the value of lastHash', () => {
+      expect(minedBlock.lastHash).toEqual(lastBlock.hash);
+    });
+
+    it('Check the data field', () => {
+      expect(minedBlock.data).toEqual(data);
+    });
+
+    it('Check the timestamp', () => {
+       expect(minedBlock.timestamp).not.toEqual(undefined);
+    });
+
   });
 
-  it('returns the genesis data', () =>{
-    expect(genesisBlock).toEqual(GENESIS_DATA);
-  });
 });
+
