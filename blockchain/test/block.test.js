@@ -1,6 +1,6 @@
-const Block = require('./block');
-const {GENESIS_DATA} = require('./config');
-const cryptoHash = require('./crypto-hash');
+const Block = require('../model/block');
+const {GENESIS_DATA} = require('../../config');
+const cryptoHash = require('../util/crypto-hash');
 
 describe('Block',() => {
 

@@ -1,4 +1,4 @@
-const cryptoHash = require('./crypto-hash');
+const cryptoHash = require('../util/crypto-hash');
 const sha256 = require('js-sha256');
 
 describe ('cryptoHash()', () => {
