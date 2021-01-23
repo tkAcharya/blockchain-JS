@@ -21,7 +21,7 @@ describe('Block',() => {
 
 describe ("genesis()", () => {
   const genesisBlock = Block.genesis();
-  console.log(require('./config'));
+  
   it('Check instance of Block', () => {
     expect(genesisBlock instanceof Block).toBe(true);
   });
