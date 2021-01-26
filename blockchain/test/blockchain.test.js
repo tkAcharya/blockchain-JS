@@ -26,15 +26,8 @@ describe('Blockchain', () => {
 
     describe('isValidChain()', () => {
 
-      beforeEach(() => {
-
-        blockchain.addBlock({data: 'Open'});
-        blockchain.addBlock({data: 'Source'});
-        blockchain.addBlock({data: 'Code'});
-
-      });
-
         describe('Chain does not start with GENESIS BLOCK', () => {
+
             it('Returns False', () => {
 
                 blockchain.chain[0] = {data: 'fake'};
@@ -45,12 +38,21 @@ describe('Blockchain', () => {
         });
 
         describe('Chain starts with GENESIS BLOCK , has multiple blocks', () => {
+          beforeEach(() => {
+
+            blockchain.addBlock({data: 'Open'});
+            blockchain.addBlock({data: 'Source'});
+            blockchain.addBlock({data: 'Code'});
+
+            // console.log(blockchain.chain[0]);
+          });
+
             describe('and a lastHash reference has changed', () => {
                 it('Returns False', () => {
 
 
                   blockchain.chain[2].lastHash = 'broken-lastHash';
-                  expect(Blockchain.isValidChain(Blockchain.chain)).toBe(false);
+                  expect(Blockchain.isValidChain(blockchain.chain)).toBe(false);
                 });
             });
 
@@ -58,7 +60,7 @@ describe('Blockchain', () => {
                 it('Returns False', () => {
 
                   blockchain.chain[2].data = 'changing data';
-                  expect(Blockchain.isValidChain(Blockchain.chain)).toBe(false);
+                  expect(Blockchain.isValidChain(blockchain.chain)).toBe(false);
                 });
 
 
@@ -66,8 +68,8 @@ describe('Blockchain', () => {
 
             describe('and the chain does not contain any invalid field', () => {
                 it('Returns True', () => {
-            
-                  expect(Blockchain.isValidChain(Blockchain.chain)).toBe(true);
+
+                  expect(Blockchain.isValidChain(blockchain.chain)).toBe(true);
                 });
             });
 

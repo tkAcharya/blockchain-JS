@@ -3,7 +3,7 @@ const Block = require('./block');
 class Blockchain {
 
     constructor(){
-        this.chain =[Block.genesis()];
+      this.chain = [Block.genesis()];
     }
 
     addBlock({data}){
@@ -11,9 +11,19 @@ class Blockchain {
         lastBlock : this.chain[this.chain.length-1],
         data
     });
-    
+
     this.chain.push(newBlock);
 
+    }
+
+    static isValidChain(chain){
+
+      if(JSON.stringify(chain[0])!== JSON.stringify(Block.genesis()))
+        return false;
+
+      //TODo
+
+      return true;
     }
 }
 
