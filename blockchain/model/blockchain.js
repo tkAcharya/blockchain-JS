@@ -1,4 +1,5 @@
 const Block = require('./block');
+const cryptoHash = require('../util/crypto-hash');
 
 class Blockchain {
 
@@ -21,7 +22,17 @@ class Blockchain {
       if(JSON.stringify(chain[0])!== JSON.stringify(Block.genesis()))
         return false;
 
-      //TODo
+        for(let i = 1;i<chain.length; i++){
+          const block = chain[i];
+          const lastBlockHash = chain[i-1].hash;
+          const {timestamp, lastHash , data} = chain[i];
+
+          if(block.lastHash!==lastBlockHash)
+            return false;
+
+          if(block.hash!= cryptoHash(timestamp,lastHash , data))
+            return false;
+        }
 
       return true;
     }
